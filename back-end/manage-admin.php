@@ -3,6 +3,10 @@
         <div class=Content>
             <div class="wrapper">
                 <h1>Manage Admin</h1>
+                <br/> <br/>
+                <a href="add-admin.php" class="btn-add">Add Admin</a>
+
+                <br/> <br/> <br/>
 
                 <table class="tbl-full">
                     <tr>
@@ -16,8 +20,32 @@
                         <td>1.</td>
                         <td>Full Name</td>
                         <td>Username</td>
-                        <td>Update delete</td>
+                        <td>
+                            <a href="#" class="btn-update">Update</a>
+                            <a href="#" class="btn-delete">Delete</a>
+                        </td>
                     </tr>
+
+                    <tr>
+                        <td>1.</td>
+                        <td>Full Name</td>
+                        <td>Username</td>
+                        <td>
+                            <a href="#" class="btn-update">Update</a>
+                            <a href="#" class="btn-delete">Delete</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1.</td>
+                        <td>Full Name</td>
+                        <td>Username</td>
+                        <td>
+                            <a href="#" class="btn-update">Update</a>
+                            <a href="#" class="btn-delete">Delete</a>
+                        </td>
+                    </tr>
+
                 </table>
             </div>
         </div>
