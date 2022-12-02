@@ -23,6 +23,10 @@
     width: 100%;
 }
 
+.tbl-30{
+    width: 30%;
+}
+
 table tr th{
     background-color: grey;
     padding: 1%;
@@ -40,11 +44,13 @@ table tr td{
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
+
 }
 
 .btn-add:hover{
     background-color: #105192;
 }
+
 
 .btn-update{
     background-color: #0984e3;
