@@ -47,6 +47,17 @@
                     </td>
                 </tr>
             </table>
+
+            <br />
+                <div>
+                    <?php
+                        if(isset($_SESSION['add'])) //check create success/not success
+                        {
+                            echo $_SESSION['add']; //display
+                            unset ($_SESSION['add']); //remove after refresh
+                        }
+                    ?>
+                </div>
         </form>
 
     </div>
@@ -76,13 +87,30 @@
         ";
 
         //3. execute the sql query submit into database (success or error)
+        // the codes inside constants.php
+        $res = mysqli_query($conn,$sql) or die(mysqli_error());
 
-        //for live database use this code, $conn = mysqli_connect('localhost','username','passsword') or die(mysqli_error());
-        $conn = mysqli_connect('localhost','root','') or die(mysqli_error()); //connect database
-        $db_select = mysqli_select_db($conn,'ims607') or die(mysqli_error()); //select db, change the 'ims607'
+        //4. check data
+        if($res==TRUE)
+        {
+            //var display message
+            $_SESSION['add'] = "Admin Successfully Added";
+            //direct to homepage then to manage admin page
+            header("location:".HOMEPAGE.'back-end/manage-admin.php');
+        }
+        else
+        {
+            //var display message
+            $_SESSION['add'] = "Add Admind Failed";
+            //direct to homepage then to add admin page
+            header("location:".HOMEPAGE.'back-end/add-admin.php');
+        }
 
 
-       // $res = mysqli_query($conn,$sql) or die(mysqli_error());
+
+
+
+
 
     }
 

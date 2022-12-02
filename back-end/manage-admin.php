@@ -16,37 +16,68 @@
                         <th>Actions</th>
                     </tr>
 
-                    <tr>
-                        <td>1.</td>
-                        <td>Full Name</td>
-                        <td>Username</td>
-                        <td>
-                            <a href="#" class="btn-update">Update</a>
-                            <a href="#" class="btn-delete">Delete</a>
-                        </td>
-                    </tr>
+                    <?php
+                        //retrieve all admins from database
+                        $sql = "SELECT * FROM admin";
+                        $res = mysqli_query($conn, $sql); //connect sql
 
-                    <tr>
-                        <td>1.</td>
-                        <td>Full Name</td>
-                        <td>Username</td>
-                        <td>
-                            <a href="#" class="btn-update">Update</a>
-                            <a href="#" class="btn-delete">Delete</a>
-                        </td>
-                    </tr>
+                        if($res==TRUE) //check database for data
+                        {
+                            $count = mysqli_num_rows($res); //retrieve all rows
+                            
+                            $sn=1;//create number for data
 
-                    <tr>
-                        <td>1.</td>
-                        <td>Full Name</td>
-                        <td>Username</td>
-                        <td>
-                            <a href="#" class="btn-update">Update</a>
-                            <a href="#" class="btn-delete">Delete</a>
-                        </td>
-                    </tr>
+                            if($count>0)
+                            {
+                                //if have > retrieve
+                                while($rows=mysqli_fetch_assoc($res))
+                                {
+                                    //retreive each
+                                    $id=$rows['id'];
+                                    $full_name=$rows['full_name'];
+                                    $user_name=$rows['user_name'];
+
+                                    //display after retrieved
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $sn++;?>.</td>
+                                        <td><?php echo $full_name; ?></td>
+                                        <td><?php echo $user_name; ?></td>
+                                        <td>
+                                            <a href="#" class="btn-update">Update</a>
+                                            <a href="#" class="btn-delete">Delete</a>
+                                        </td>
+                                    </tr>
+                                <?php
+
+                                }
+                            }
+                          
+                        }
+                        else
+                        {
+                            //no data
+                        }
+
+
+                    ?>
+
 
                 </table>
+
+                <br />
+                <div>
+                    <?php
+                        if(isset($_SESSION['add']))
+                        {
+                            echo $_SESSION['add']; //display
+                            unset ($_SESSION['add']); //remove after refresh
+                        }
+                    ?>
+                </div>
+
+
             </div>
         </div>
 

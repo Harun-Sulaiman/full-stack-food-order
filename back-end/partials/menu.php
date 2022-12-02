@@ -1,6 +1,8 @@
+<?php include('../config/constants.php')?>
+
 <html>
     <head>
-        <title>Foor order Website</title>
+        <title>Foor order & Management</title>
 
         <link rel="stylesheet" href="../css/admin-page.css">
     </head>
