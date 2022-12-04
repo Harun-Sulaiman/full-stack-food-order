@@ -80,7 +80,14 @@ table tr td{
     background-color: #af0000;
 }
 
+/*Variable msg*/
+.success{
+    color: green;
+}
 
+.error{
+    color: #af0000;
+}
 
 
 

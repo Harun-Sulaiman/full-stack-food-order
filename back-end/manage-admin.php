@@ -46,7 +46,7 @@
                                         <td><?php echo $user_name; ?></td>
                                         <td>
                                             <a href="#" class="btn-update">Update</a>
-                                            <a href="#" class="btn-delete">Delete</a>
+                                            <a href="<?php echo HOMEPAGE; ?>back-end/delete-admin.php?id=<?php echo $id; ?>" class="btn-delete">Delete</a>
                                         </td>
                                     </tr>
                                 <?php
@@ -67,15 +67,23 @@
                 </table>
 
                 <br />
-                <div>
-                    <?php
-                        if(isset($_SESSION['add']))
+                
+                    <?php //variable session part
+                        if(isset($_SESSION['add'])) //variable session add
                         {
                             echo $_SESSION['add']; //display
                             unset ($_SESSION['add']); //remove after refresh
                         }
                     ?>
-                </div>
+
+                    <?php
+                        if(isset($_SESSION['delete'])) //variable session delete
+                        {
+                            echo $_SESSION['delete']; //display
+                            unset ($_SESSION['delete']); //remove after refresh
+                        }
+                    ?>
+                
 
 
             </div>

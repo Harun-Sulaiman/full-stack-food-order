@@ -94,14 +94,14 @@
         if($res==TRUE)
         {
             //var display message
-            $_SESSION['add'] = "Admin Successfully Added";
+            $_SESSION['add'] = "<div class='success'>Admin Successfully Added</div>";
             //direct to homepage then to manage admin page
             header("location:".HOMEPAGE.'back-end/manage-admin.php');
         }
         else
         {
             //var display message
-            $_SESSION['add'] = "Add Admind Failed";
+            $_SESSION['add'] = "<div class='error'>Add Admin Failed</div>";
             //direct to homepage then to add admin page
             header("location:".HOMEPAGE.'back-end/add-admin.php');
         }
