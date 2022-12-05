@@ -28,7 +28,7 @@
             //echo "Failed to Delete";
              //var display message
              $_SESSION['delete'] = "<div class='error'>Delete Admin Failed</div>";
-             //direct to homepage then to add admin page
+             //direct to homepage then to manage admin page
              header("location:".HOMEPAGE.'back-end/manage-admin.php');
         }
     //3. redirect to manage-admin page if success/error
