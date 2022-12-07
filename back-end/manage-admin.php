@@ -45,6 +45,7 @@
                                         <td><?php echo $full_name; ?></td>
                                         <td><?php echo $user_name; ?></td>
                                         <td>
+                                            <a href="<?php echo HOMEPAGE; ?>back-end/update-password.php?id=<?php echo $id; ?>" class="btn-update">Change Password</a>
                                             <a href="<?php echo HOMEPAGE; ?>back-end/update-admin.php?id=<?php echo $id; ?>" class="btn-update">Update</a>
                                             <a href="<?php echo HOMEPAGE; ?>back-end/delete-admin.php?id=<?php echo $id; ?>" class="btn-delete">Delete</a>
                                         </td>
@@ -74,13 +75,17 @@
                             echo $_SESSION['add']; //display
                             unset ($_SESSION['add']); //remove after refresh
                         }
-                    ?>
-
-                    <?php
+                
                         if(isset($_SESSION['delete'])) //variable session delete
                         {
                             echo $_SESSION['delete']; //display
                             unset ($_SESSION['delete']); //remove after refresh
+                        }
+
+                        if(isset($_SESSION['update']))
+                        {
+                            echo $_SESSION['update'];
+                            unset ($_SESSION['update']);
                         }
                     ?>
                 

@@ -84,6 +84,31 @@
         $id =  $_POST['id'];
         $full_name = $_POST['full_name'];
         $user_name = $_POST['user_name'];
+
+        //sql query to update database admin
+        $sql = "UPDATE admin SET
+        full_name = '$full_name',
+        user_name = '$user_name'
+        WHERE id = '$id'
+        ";
+
+        //execute query
+        $res = mysqli_query($conn,$sql);
+
+        //check
+        if($res==true)
+        {
+            //updated
+            $_SESSION ['update'] = "<div class='success'>Admin Updated.</div>";
+            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+        }
+        else
+        {
+            //failed
+            $_SESSION ['update'] = "<div class='error'>Update Failed.</div>";
+            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+        }
+
     }
 
 
