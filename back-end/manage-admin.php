@@ -9,8 +9,15 @@
                 <br/> <br/> <br/>
 
                 <table class="tbl-full">
+                    <colgroup>
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 25%;">
+                        <col span="1" style="width: 25%;">
+                        <col span="1" style="width: 50%;">
+                    </colgroup>
+
                     <tr>
-                        <th>S.No.</th>
+                        <th>No.</th>
                         <th>Full Name</th>
                         <th>Username</th>
                         <th>Actions</th>
@@ -86,6 +93,12 @@
                         {
                             echo $_SESSION['update'];
                             unset ($_SESSION['update']);
+                        }
+
+                        if(isset($_SESSION['user-not-found']))
+                        {
+                            echo $_SESSION['user-not-found'];
+                            unset ($_SESSION['user-not-found']);
                         }
                     ?>
                 
