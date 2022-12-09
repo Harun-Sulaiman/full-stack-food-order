@@ -100,6 +100,24 @@
                             echo $_SESSION['user-not-found'];
                             unset ($_SESSION['user-not-found']);
                         }
+
+                        if(isset($_SESSION['password-not-match']))
+                        {
+                            echo $_SESSION['password-not-match'];
+                            unset ($_SESSION['password-not-match']);
+                        }
+
+                        if(isset($_SESSION['change-password-success']))
+                        {
+                            echo $_SESSION['change-password-success'];
+                            unset ($_SESSION['change-password-success']);
+                        }
+
+                        if(isset($_SESSION['change-password-failed']))
+                        {
+                            echo $_SESSION['change-password-failed'];
+                            unset ($_SESSION['change-password-failed']);
+                        }
                     ?>
                 
 

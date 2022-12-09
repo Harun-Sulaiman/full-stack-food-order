@@ -14,7 +14,7 @@
             }
         ?>
 
-        <form action="" method="POST"></form>
+        <form action="" method="POST">
 
             <table class="tbl-40">
                 <tr>
@@ -41,12 +41,12 @@
                 <tr>
                     <td colspan="2">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="submit" name="submit" value="Change Password" class="btn-update">
+                        <input type="submit" name="submit" value="Change Password" class="btn-add">
                     </td>
                 </tr>
 
-
             </table>
+        </form>
     </div>
 </div>
 
@@ -55,6 +55,7 @@
     //check
     if(isset($_POST['submit']))
     {
+        
         //get data
         $id=$_POST['id'];
         $current_password = md5($_POST['current_password']);
@@ -69,17 +70,52 @@
 
             if($res==true)
             {
-                $count=mysqli_num_rows($res); //check data
+                //check data
+                $count=mysqli_num_rows($res); 
 
                 if($count==1)
                 {
                     //user exist
-                    echo "User Found";
+                    //echo "User Found";
+                    //check new and confirm
+                    if($new_password==$confirm_password)
+                    {
+                        //update query
+                        $sql2 = "UPDATE admin SET
+                            password='$new_password'
+                            WHERE id=$id
+                        ";
+
+                        //execute
+                        $res2 = mysqli_query($conn, $sql2);
+
+                        //check executed query
+                        if($res2==true)
+                        {
+                            //display success
+                            $_SESSION ['change-password-success'] = "<div class='success'> Password Changed. </div>";
+                            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+                        }
+                        else
+                        {
+                            //display error
+                            $_SESSION ['change-password-failed'] = "<div class='error'> Failed To Change Password. </div>";
+                            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+                        }
+
+                    }
+                    else
+                    {
+                        //redirect
+                        $_SESSION ['password-not-match'] = "<div class='error'> Password Not Match. </div>";
+                        header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+                    }
                 }
+
                 else
                 {
                     //user not exist
-                    $_SESSION['user-not-found'] = "<div class='error'> User Not Found. </div>";
+                    $_SESSION ['user-not-found'] = "<div class='error'> User Not Found. </div>";
 
                     header('location:'.HOMEPAGE.'back-end/manage-admin.php');
                 }
@@ -89,7 +125,7 @@
         //change pass
 
 
-    }
+     }
 
 ?>
 
