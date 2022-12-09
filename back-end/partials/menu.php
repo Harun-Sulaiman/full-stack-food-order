@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Foor order & Management</title>
+        <title>Foor order & Management System</title>
 
         <link rel="stylesheet" href="../css/admin-page.css">
     </head>

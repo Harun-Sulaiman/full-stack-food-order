@@ -66,6 +66,7 @@ table tr td{
     text-decoration: none;
     border-radius: 5px;
     
+    
 }
 
 .btn-update:hover{
@@ -80,6 +81,7 @@ table tr td{
     text-decoration: none;
     margin-right: 1%;
     border-radius: 5px;
+    
 }
 
 .btn-delete:hover{
@@ -141,3 +143,13 @@ table tr td{
     background-color: #007a62;
     color: white;
 }
+
+
+/*login*/
+.login{
+    width: 20%;
+    border: 1px solid grey;
+    margin: 10% auto;
+    padding: 2%;
+}
+
