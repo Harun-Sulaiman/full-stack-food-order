@@ -153,3 +153,21 @@ table tr td{
     padding: 2%;
 }
 
+.div-login{
+    text-align: center;
+}
+
+.btn-login2{
+    background-color: #0984e3;
+    padding: 2%;
+    width: 30%;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+
+}
+
+.btn-login2:hover{
+    background-color: #105192;
+}
