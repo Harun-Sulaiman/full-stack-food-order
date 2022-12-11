@@ -1,4 +1,11 @@
-<?php include('../config/constants.php')?>
+<?php 
+
+    include('../config/constants.php');
+    include('authorization.php');
+
+?>
+
+
 
 <html>
     <head>

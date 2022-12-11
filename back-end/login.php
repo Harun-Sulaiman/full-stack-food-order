@@ -30,6 +30,12 @@
                     echo $_SESSION['login'];
                     unset ($_SESSION['login']);
                 }
+
+                if(isset($_SESSION['no-login']))
+                {
+                    echo $_SESSION['no-login'];
+                    unset ($_SESSION['no-login']);
+                }
             ?>
 
             <br/> <br/>
@@ -63,6 +69,8 @@
             {
                 //user correct
                 $_SESSION ['login'] = "<div class='success'>Login Success.</div>";
+                $_SESSION ['user'] = $user_name; //check user logged
+
                 header('location:'.HOMEPAGE.'back-end/');
             }
             else
