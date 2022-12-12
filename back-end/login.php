@@ -14,10 +14,10 @@
                     
                 <div class="div-login">
                     <input type="text" name="user_name" placeholder="Enter Username">
-                    <br/> <br/>
+                    <br /><br />
                     
                     <input type="password" name="password" placeholder="Enter Password">
-                    <br/> <br/>
+                    <br /><br />
                         
                     <input type="submit" name="submit" value="Enter" class="btn-login2">
                 </div>
@@ -38,7 +38,7 @@
                 }
             ?>
 
-            <br/> <br/>
+        <br /><br />
             <p class="text-center">IMS607 Food Order & Management System</p>
 
         </div>

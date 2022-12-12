@@ -4,7 +4,7 @@
     <div class="wrapper">
         <h1>Add Admin</h1>
 
-        <br/><br/>
+        <br /><br />
 
         <form action="" method="POST">
 

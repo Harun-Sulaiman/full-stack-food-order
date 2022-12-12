@@ -6,7 +6,7 @@
                 <br/> <br/>
                 <a href="add-admin.php" class="btn-add">Add Admin</a>
 
-                <br/> <br/> <br/>
+                <br /><br /><br />
 
                 <table class="tbl-full">
                     <colgroup>
