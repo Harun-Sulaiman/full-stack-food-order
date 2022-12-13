@@ -55,6 +55,12 @@
                     echo $_SESSION['add-category'];
                     unset ($_SESSION['add-category']);
                 }
+
+                if(isset($_SESSION['upload']))
+                {
+                    echo $_SESSION['upload'];
+                    unset ($_SESSION['upload']);
+                }
             ?>
 
 
@@ -101,6 +107,16 @@
 
                         //upload
                         $upload = move_uploaded_file($source_path, $destination_path);
+
+                        //check wether the image is uploaded
+                        //if not uploaded, stop process, redirect
+                        if($upload==false)
+                        {
+                            //session
+                            $_SESSION['upload'] = "<div class='success'> Failed to Upload Image. </div>";
+                            header('location:'.HOMEPAGE.'back-end/manage-category.php');
+                            //stop process
+                        }
                     }
                     else
                     {
@@ -111,6 +127,7 @@
                 //sql query
                 $sql = "INSERT INTO category SET
                     title = '$title',
+                    image_name = '$image_name',
                     featured_menu = '$featured_menu',
                     active_menu = '$active_menu'
                 ";
