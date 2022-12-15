@@ -102,8 +102,7 @@
                         //upload image
                         //get image name/source path/destination
                         $image_name = $_FILES['image']['name'];
-                        $source_path = $_FILES['image']['tmp_name'];
-                        $destination_path = "../images/category/".$image_name;
+                        
 
                         //renaming duplicate images
                             //get extension of image
@@ -112,7 +111,8 @@
                             //after that randomize rename image
                             $image_name = "Food_Category_".rand(000,999).'.'.$ext;
 
-
+                        $source_path = $_FILES['image']['tmp_name'];
+                        $destination_path = "../images/category/".$image_name;
                         
                         //upload
                         $upload = move_uploaded_file($source_path, $destination_path);
@@ -122,15 +122,16 @@
                         if($upload==false)
                         {
                             //session
-                            $_SESSION['upload'] = "<div class='success'> Failed to Upload Image. </div>";
-                            header('location:'.HOMEPAGE.'back-end/manage-category.php');
+                            $_SESSION['upload'] = "<div class='error'> Error. Please Upload an Image. </div>";
+                            header('location:'.HOMEPAGE.'back-end/add-category.php');
                             //stop process
+                            die();
                         }
                     }
                     else
                     {
                         //if there no image uploaded, change to blank
-                        $image_name = "";
+                        $image_name="";
                     }
 
                 //sql query

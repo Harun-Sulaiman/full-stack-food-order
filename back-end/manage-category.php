@@ -60,13 +60,13 @@
                                             {
                                                 //display image. break php tu put html
                                                 ?>
-                                                    <img src="<?php echo HOMEPAGE; ?>images/category/<?php echo $image_name; ?>" width="100px"/>
+                                                    <img src="<?php echo HOMEPAGE; ?>images/category/<?php echo $image_name; ?>" width="150px"/>
                                                 <?php
                                             }
                                             else
                                             {
                                                 //display msg
-                                                echo "<div class='error'>No Image Available</div>";
+                                                echo "<div class='error'>No Image Available.</div>";
                                             }
                                         ?>
                                     </td>
