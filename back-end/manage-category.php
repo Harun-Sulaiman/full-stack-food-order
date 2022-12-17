@@ -75,7 +75,7 @@
                                     <td><?php echo $active_menu; ?></td>
                                     <td>
                                         <a href="<?php echo HOMEPAGE; ?>back-end/update-admin.php?id=<?php echo $id; ?>" class="btn-update">Update</a>
-                                        <a href="<?php echo HOMEPAGE; ?>back-end/delete-admin.php?id=<?php echo $id; ?>" class="btn-delete">Delete</a>
+                                        <a href="<?php echo HOMEPAGE; ?>back-end/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete</a>
                                     </td>
                                 </tr>
                             <?php
@@ -102,6 +102,18 @@
                 {
                     echo $_SESSION['add-category'];
                     unset ($_SESSION['add-category']);
+                }
+
+                if(isset($_SESSION['remove-category']))
+                {
+                    echo $_SESSION['remove-category'];
+                    unset ($_SESSION['remove-category']);
+                }
+
+                if(isset($_SESSION['delete-category']))
+                {
+                    echo $_SESSION['delete-category'];
+                    unset ($_SESSION['delete-category']);
                 }
             ?>
 
