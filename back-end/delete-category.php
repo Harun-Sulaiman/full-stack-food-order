@@ -18,13 +18,15 @@
 
             //remove the file
             $remove = unlink($path);
+            //echo "removed";
 
             //if failed to remove
             if($remove==false)
             {
                 //set session > redirect > stop process
                 $_SESSION['remove-category'] = "<div class='error'>Failed to Remove Image's File</div>";
-                header('location'.HOMEPAGE.'back-end/manage-category.php');
+                header('location:'.HOMEPAGE.'back-end/manage-category.php');
+                die();
 
             }
         }
@@ -40,13 +42,13 @@
             {
                 //success msg and redirect
                 $_SESSION['delete-category'] = "<div class='success'>Category Deleted</div>";
-                header('location'.HOMEPAGE.'back-end/manage-category.php');
+                header('location:'.HOMEPAGE.'back-end/manage-category.php');
             }
             else
             {
                 //failed msg and redirect
                 $_SESSION['delete-category'] = "<div class='error'>Failed to Delete</div>";
-                header('location'.HOMEPAGE.'back-end/manage-category.php');
+                header('location:'.HOMEPAGE.'back-end/manage-category.php');
             }
         
     }
