@@ -74,7 +74,7 @@
                                     <td><?php echo $featured_menu; ?></td>
                                     <td><?php echo $active_menu; ?></td>
                                     <td>
-                                        <a href="<?php echo HOMEPAGE; ?>back-end/update-admin.php?id=<?php echo $id; ?>" class="btn-update">Update</a>
+                                        <a href="<?php echo HOMEPAGE; ?>back-end/update-category.php?id=<?php echo $id; ?>" class="btn-update">Update</a>
                                         <a href="<?php echo HOMEPAGE; ?>back-end/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete</a>
                                     </td>
                                 </tr>

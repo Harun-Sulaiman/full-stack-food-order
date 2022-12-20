@@ -4,7 +4,7 @@
     <div class="wrapper">
         <h1>Change Password</h1>
 
-        <br/><br/>
+        <br /><br />
 
 
         <?php 
