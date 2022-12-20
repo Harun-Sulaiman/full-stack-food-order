@@ -6,6 +6,43 @@
 
         <br /><br />
 
+        <?php
+
+            //check id
+            if(isset($_GET['id']))
+            {
+                //get id
+                $id = $_GET['id'];
+                
+                //sql query to get other data with that id
+                $sql = "SELECT * FROM category WHERE id=$id";
+
+                //execute
+                $res = mysqli_query($conn, $sql);
+
+                //count rows id
+                $count = mysqli_num_rows($res);
+                
+                    if($count==1)
+                    {
+                        //get data
+                    }
+                    else
+                    {
+                        //redirect
+                        $_SESSION['no-category-found'] = "<div class='error'>Category Not Found.</div>";
+                        header('location:'.HOMEPAGE.'back-end/manage-category.php');
+                    }
+
+            }
+            else
+            {
+                //redirect
+                header('location:'.HOMEPAGE.'back-end/manage-category.php');
+            }
+
+        ?>
+
         <form action="" method="POST" enctype="multipart/form-data">
             <table class="tbl-30">
                 <tr>

@@ -115,6 +115,12 @@
                     echo $_SESSION['delete-category'];
                     unset ($_SESSION['delete-category']);
                 }
+
+                if(isset($_SESSION['no-category-found']))
+                {
+                    echo $_SESSION['no-category-found'];
+                    unset ($_SESSION['no-category-found']);
+                }
             ?>
 
     </div>
