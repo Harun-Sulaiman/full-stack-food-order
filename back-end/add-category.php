@@ -47,7 +47,8 @@
             </table>
         </form>
 
-        <br /><br />
+        <br /><br /><br /><br />
+        
 
             <?php
                 if(isset($_SESSION['add-category']))
@@ -103,29 +104,33 @@
                         //get image name/source path/destination
                         $image_name = $_FILES['image']['name'];
                         
-
-                        //renaming duplicate images
-                            //get extension of image
-                            $ext = end(explode('.', $image_name));
-
-                            //after that randomize rename image
-                            $image_name = "Food_Category_".rand(000,999).'.'.$ext;
-
-                        $source_path = $_FILES['image']['tmp_name'];
-                        $destination_path = "../images/category/".$image_name;
-                        
-                        //upload
-                        $upload = move_uploaded_file($source_path, $destination_path);
-
-                        //check wether the image is uploaded
-                        //if not uploaded, stop process, redirect
-                        if($upload==false)
+                        //save if image uploaded
+                        if($image_name !="")
                         {
-                            //session
-                            $_SESSION['upload'] = "<div class='error'> Error. Please Upload an Image. </div>";
-                            header('location:'.HOMEPAGE.'back-end/add-category.php');
-                            //stop process
-                            die();
+                            //renaming duplicate images
+                                //get extension of image
+                                $ext = end(explode('.', $image_name));
+
+                                //after that randomize rename image
+                                $image_name = "Food_Category_".rand(000,999).'.'.$ext;
+
+                            $source_path = $_FILES['image']['tmp_name'];
+                            $destination_path = "../images/category/".$image_name;
+                            
+                            //upload
+                            $upload = move_uploaded_file($source_path, $destination_path);
+
+                            //check wether the image is uploaded
+                            //if not uploaded, stop process, redirect
+                            if($upload==false)
+                            {
+                                //session
+                                $_SESSION['upload'] = "<div class='error'> Image Upload Failed. </div>";
+                                header('location:'.HOMEPAGE.'back-end/add-category.php');
+                                //stop process
+                                die();
+                            }
+
                         }
                     }
                     else

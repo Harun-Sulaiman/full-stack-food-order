@@ -26,6 +26,13 @@
                     if($count==1)
                     {
                         //get data
+                         $row = mysqli_fetch_assoc($res);
+
+                         //individual data
+                        $title = $row['title'];
+                        $current_image = $row['image_name'];
+                        $featured_menu = $row['featured_menu'];
+                        $active_menu = $row['active_menu'];
                     }
                     else
                     {
@@ -48,14 +55,27 @@
                 <tr>
                     <td>Title: </td>
                     <td>
-                        <input type="text" name="title" value="">
+                        <input type="text" name="title" value="<?php echo $title; ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>Current Image: </td>
                     <td>
-                        Image Here
+                        <?php 
+                            if($current_image !="")
+                            {
+                                //display image //break php to add html
+                                ?> 
+                                    <img src="<?php echo HOMEPAGE; ?>images/category/<?php echo $current_image;?>" width="150px">
+                                <?php
+                            }
+                            else
+                            {
+                                //display error
+                                echo "<div class='error'> Image Not Added.</div>";
+                            }
+                        ?>
                     </td>
                 </tr>
 
@@ -69,16 +89,47 @@
                 <tr>
                     <td>Featured Menu: </td>
                     <td>
-                        <input type="radio" name="featured_menu" value="Yes"> Yes
-                        <input type="radio" name="featured_menu" value="No"> No
+                        <input 
+                            <?php 
+                                if($featured_menu=="Yes")
+                                {
+                                    echo "Selected";
+                                } 
+                            ?> 
+                            
+                        type="radio" name="featured_menu" value="Yes"> Yes
+
+                        <input 
+                            <?php 
+                                if($featured_menu=="No")
+                                {
+                                    echo "Selected";
+                                } 
+                            ?> 
+                        type="radio" name="featured_menu" value="No"> No
                     </td>
                 </tr>
 
                 <tr>
                     <td> Active Menu: </td>
                     <td>
-                        <input type="radio" name="active_menu" value="Yes"> Yes
-                        <input type="radio" name="active_menu" value="No"> No
+                        <input 
+                            <?php 
+                                if($active_menu=="Yes")
+                                {
+                                    echo "Selected";
+                                } 
+                            ?> 
+                        type="radio" name="active_menu" value="Yes"> Yes
+
+                        <input 
+                            <?php 
+                                if($active_menu=="No")
+                                {
+                                    echo "Selected";
+                                } 
+                            ?> 
+                        type="radio" name="active_menu" value="No"> No
                     </td>
                 </tr>
 
