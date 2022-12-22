@@ -121,6 +121,24 @@
                     echo $_SESSION['no-category-found'];
                     unset ($_SESSION['no-category-found']);
                 }
+
+                if(isset($_SESSION['update-category']))
+                {
+                    echo $_SESSION['update-category'];
+                    unset ($_SESSION['update-category']);
+                }
+
+                if(isset($_SESSION['upload']))
+                {
+                    echo $_SESSION['upload'];
+                    unset ($_SESSION['upload']);
+                }
+
+                if(isset($_SESSION['remove-failed']))
+                {
+                    echo $_SESSION['remove-failed'];
+                    unset ($_SESSION['remove-failed']);
+                }
             ?>
 
     </div>
