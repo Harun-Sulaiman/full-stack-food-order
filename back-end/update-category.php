@@ -159,7 +159,7 @@
                 if(isset($_FILES['image']['name']))
                 {
                     //get the image details
-                    $image_name = $_FILES['iamge']['name'];
+                    $image_name = $_FILES['image']['name'];
 
                     //check if image uploaded
                     if($image_name !="")
@@ -167,29 +167,27 @@
                         //if image uploaded
                         //1st - upload the new image
                         //renaming duplicate images
-                                //get extension of image
-                                $ext = end(explode('.', $image_name));
-
-                                //after that randomize rename image
-                                $image_name = "Food_Category_".rand(000,999).'.'.$ext;
-
-                            $source_path = $_FILES['image']['tmp_name'];
-                            $destination_path = "../images/category/".$image_name;
-                            
-                            //upload
-                            $upload = move_uploaded_file($source_path, $destination_path);
-
-                            //check wether the image is uploaded
-                            //if not uploaded, stop process, redirect
-                            if($upload==false)
-                            {
-                                //session
-                                $_SESSION['upload'] = "<div class='error'> Image Upload Failed. </div>";
-                                header('location:'.HOMEPAGE.'back-end/manage-category.php');
-                                //stop process
-                                die();
-                            }
-
+                        //get extension of image
+                        $ext = end(explode('.', $image_name));
+                        //after that randomize rename image
+                        $image_name = "Food_Category_".rand(000,999).'.'.$ext;
+                        $source_path = $_FILES['image']['tmp_name'];
+                        $destination_path = "../images/category/".$image_name;
+                        
+                        //upload
+                        $upload = move_uploaded_file($source_path, $destination_path);
+                        //check wether the image is uploaded
+                        //if not uploaded, stop process, redirect
+                        if($upload==false)
+                        {
+                            //session
+                            $_SESSION['upload'] = "<div class='error'> Image Upload Failed. </div>";
+                            header('location:'.HOMEPAGE.'back-end/manage-category.php');
+                            //stop process
+                            die();
+                        }
+                    
+                
                         //2nd - remove current image if uploaded
                         if($current_image != "")
                         {
@@ -197,27 +195,26 @@
 
                             $remove = unlink($remove_path);
                             
-                                //check if image removed
-                                if($remove==false)
-                                {
-                                    //failed
-                                    $_SESSION['remove-failed'] = "<div class='error'> Failed To Remove Current Image. </div>";
-                                    header('location:'.HOMEPAGE.'back-end/manage-category.php');
-                                    die();
-                                }
+                            //check if image removed
+                            if($remove==false)
+                            {
+                                //failed
+                                $_SESSION['remove-failed'] = "<div class='error'> Failed To Remove Current Image. </div>";
+                                header('location:'.HOMEPAGE.'back-end/manage-category.php');
+                                die(); //stop, dont save into DB
+                            }
                         }
-                       
                     }
                     else
                     {
                         $image_name = $current_image;
                     }
+                    
                 }
                 else
                 {
                     $image_name = $current_image;
                 }
-            
 
                 //save all to DB
                 $sql2 = "UPDATE category SET
@@ -244,7 +241,7 @@
                         $_SESSION['update-category'] = "<div class='error'> Category Failed To Update.</div>";
                         header('location:'.HOMEPAGE. 'back-end/manage-category.php');
                     }
-            }
+                }
         ?>
 
 
