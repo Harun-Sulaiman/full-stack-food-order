@@ -12,7 +12,7 @@
 
     define('LOCALHOST','localhost');
     define('DB_USERNAME','ricomtrc_8ag5'); //online
-    define('DB_PASSWORD',''); //online
+    define('DB_PASSWORD','8ag5#vHy@2938'); //online
     define('DB_NAME','ricomtrc_8ag5'); //online
 
         //for live database use this code, $conn = mysqli_connect('localhost','username','passsword') or die(mysqli_error());

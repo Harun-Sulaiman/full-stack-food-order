@@ -202,7 +202,7 @@
                                 $_SESSION['remove-failed'] = "<div class='error'> Failed To Remove Current Image. </div>";
                                 header('location:'.HOMEPAGE.'back-end/manage-category.php');
                                 die(); //stop, dont save into DB
-                            }
+                            }i
                         }
                     }
                     else
