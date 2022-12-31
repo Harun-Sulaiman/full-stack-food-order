@@ -1,53 +1,17 @@
 <?php include ('../config/constants.php'); ?>
 <?php ob_start(); ?>
-<?php session_start();
-    //form save>database
-    //check submit or not
-
-    if(isset($_POST['submit']))
+<?php
+        if(isset($_POST['submit']))
     {
-        //submitted
-        
-        //1.data entered
-        $full_name = $_POST['full_name'];
-        $user_name = $_POST['user_name'];
-        $password = md5($_POST['password']); //encrypt password with md5
-
-        //2.SQL query save into database
-        $sql = "INSERT INTO admin SET
-            full_name='$full_name',
-            user_name='$user_name',
-            password='$password'
-        ";
-
-        //3. execute the sql query submit into database (success or error)
-        // the codes inside constants.php
-        $res = mysqli_query($conn,$sql) or die(mysqli_error());
-
-        //4. check data
-        if($res==TRUE)
-        {
-            //var display message
-            $_SESSION['add'] = "<div class='success'>Admin Successfully Added</div>";
-            //direct to homepage then to manage admin page
-            header("location:".HOMEPAGE.'back-end/manage-admin.php');
-            exit();
-            ob_end_flush();
-        }
-        else
-        {
-        
-            //var display message
-            $_SESSION['add'] = "<div class='error'>Add Admin Failed</div>";
-            //direct to homepage then to add admin page
-            header("location:".HOMEPAGE.'back-end/add-admin.php');
-        }
+        header("location:".HOMEPAGE.'back-end/manage-admin.php');
+        ob_end_flush();
 
     }
 
 ?>
 
 <?php include ('partials/menu.php'); ?>
+
 
 <div class="content">
     <div class="wrapper">

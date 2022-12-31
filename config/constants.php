@@ -12,7 +12,7 @@
     //define('DB_NAME','ims607');
 
     //live server
-    define('HOMEPAGE','https://ricomtr.com/8ag5/full-stack-food-order/');
+    define('HOMEPAGE','https://ricomtr.com/8ag5/');
     define('LOCALHOST','localhost');
     define('DB_USERNAME','ricomtrc_8ag5'); 
     define('DB_PASSWORD','8ag5#vHy@2938'); 
