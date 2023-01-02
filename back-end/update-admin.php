@@ -1,3 +1,45 @@
+<?php include ('../config/constants.php'); ?>
+<?php ob_start(); ?>
+<?php session_start();
+    //check submit/not
+    if(isset($_POST['submit']))
+    {
+        //echo "Button clicked";
+        //get value from form
+        $id =  $_POST['id'];
+        $full_name = $_POST['full_name'];
+        $user_name = $_POST['user_name'];
+
+        //sql query to update database admin
+        $sql = "UPDATE admin SET
+        full_name = '$full_name',
+        user_name = '$user_name'
+        WHERE id = '$id'
+        ";
+
+        //execute query
+        $res = mysqli_query($conn,$sql);
+
+        //check
+        if($res==true)
+        {
+            //updated
+            $_SESSION ['update'] = "<div class='success'>Admin Updated.</div>";
+            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+            exit();
+            ob_end_flush();
+        }
+        else
+        {
+            //failed
+            $_SESSION ['update'] = "<div class='error'>Update Failed.</div>";
+            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+            exit();
+            ob_end_flush();
+        }
+    }
+?>
+
 <?php include ('partials/menu.php'); ?>
 
 <div class="content">
@@ -34,7 +76,7 @@
                 else
                 {
                     //no data, redirect to admin page
-                    header('location:'.HOMEPAGE.'back-end/manage-admin.php');
+                    $_SESSION ['no-id'] = "<div class='error'>Id Not Found.</div>";
                 }
 
             }
@@ -74,47 +116,7 @@
     </div>
 </div>
 
-<?php
 
-    //check submit/not
-    if(isset($_POST['submit']))
-    {
-        //echo "Button clicked";
-        //get value from form
-        $id =  $_POST['id'];
-        $full_name = $_POST['full_name'];
-        $user_name = $_POST['user_name'];
-
-        //sql query to update database admin
-        $sql = "UPDATE admin SET
-        full_name = '$full_name',
-        user_name = '$user_name'
-        WHERE id = '$id'
-        ";
-
-        //execute query
-        $res = mysqli_query($conn,$sql);
-
-        //check
-        if($res==true)
-        {
-            //updated
-            $_SESSION ['update'] = "<div class='success'>Admin Updated.</div>";
-            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
-        }
-        else
-        {
-            //failed
-            $_SESSION ['update'] = "<div class='error'>Update Failed.</div>";
-            header('location:'.HOMEPAGE.'back-end/manage-admin.php');
-        }
-
-    }
-
-
-
-
-?>
 
 
 

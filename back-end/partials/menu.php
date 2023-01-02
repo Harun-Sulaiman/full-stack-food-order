@@ -1,8 +1,6 @@
 <?php 
-
-    include('../config/constants.php');
     include('authorization.php');
-
+    include ('../config/constants.php');
 ?>
 
 

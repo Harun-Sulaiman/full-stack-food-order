@@ -1,6 +1,6 @@
 <?php include ('../config/constants.php'); ?>
-
-<?php
+<?php ob_start(); ?>
+<?php session_start();
     //check enter 
     if(isset($_POST['submit']))
     {
@@ -24,12 +24,16 @@
                 $_SESSION ['user'] = $user_name; //check user logged
 
                 header('location:'.HOMEPAGE.'back-end/');
+                exit();
+                ob_end_flush();
             }
             else
             {
                 //no user
-                $_SESSION ['login'] = "<div class='error text-center'>Login Failed.</div>";
+                $_SESSION ['login'] = "<div class='error text-center'>Wrong Username or Password.</div>";
                 header('location:'.HOMEPAGE.'back-end/login.php');
+                exit();
+                ob_end_flush();
             }
     }
 

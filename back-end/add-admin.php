@@ -41,6 +41,8 @@
             $_SESSION['add'] = "<div class='error'>Add Admin Failed</div>";
             //direct to homepage then to add admin page
             header("location:".HOMEPAGE.'back-end/add-admin.php');
+            exit();
+            ob_end_flush();
         }
 
     }
