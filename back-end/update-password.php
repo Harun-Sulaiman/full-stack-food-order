@@ -1,6 +1,6 @@
 <?php include ('../config/constants.php'); ?>
 <?php ob_start(); ?>
-<?php session_start();
+<?php 
 
     //check
     if(isset($_POST['submit']))
@@ -71,21 +71,23 @@
                 else
                 {
                     //user not exist
-                    $_SESSION ['user-not-found'] = "<div class='error'> User Not Found. </div>";
+                    $_SESSION ['user-not-found'] = "<div class='error'> Error. User Not Found. </div>";
 
                     header('location:'.HOMEPAGE.'back-end/manage-admin.php');
                     exit();
                     ob_end_flush();
                 }
             }
-        //check new and confirm matched
-
-        //change pass
-
-
      }
 
 ?>
+
+        <?php 
+            if(isset($_GET['id']))
+            {
+                $id=$_GET['id'];
+            }
+        ?>
 
 <?php include('partials/menu.php'); ?>
 
@@ -96,12 +98,7 @@
         <br /><br />
 
 
-        <?php 
-            if(isset($_GET['id']))
-            {
-                $id=$_GET['id'];
-            }
-        ?>
+        
 
         <form action="" method="POST">
 

@@ -1,6 +1,6 @@
 <?php include ('../config/constants.php'); ?>
 <?php ob_start(); ?>
-<?php session_start();
+<?php
     //check submit/not
     if(isset($_POST['submit']))
     {
@@ -40,6 +40,43 @@
     }
 ?>
 
+<?php 
+        
+        //retrive current admin to update
+        $id=$_GET['id']; 
+
+        //sql query
+        $sql="SELECT * FROM admin WHERE id=$id";
+
+        //execute
+        $res=mysqli_query($conn, $sql);
+
+        //check 
+        if($res==true)
+        {
+            $count = mysqli_num_rows($res); //check data
+
+            if($count==1)
+            {
+                //details
+                $rows=mysqli_fetch_assoc($res);
+
+                $full_name = $rows['full_name'];
+                $user_name = $rows['user_name'];
+
+            }
+            else
+            {
+                //no data, redirect to admin page
+                $_SESSION ['no-id'] = "<div class='error'>Id Not Found.</div>";
+                exit();
+                ob_end_flush();
+            }
+
+        }
+    
+    ?>
+
 <?php include ('partials/menu.php'); ?>
 
 <div class="content">
@@ -48,40 +85,7 @@
 
         <br/><br/>
 
-        <?php 
-        
-            //retrive current admin to update
-            $id=$_GET['id']; 
 
-            //sql query
-            $sql="SELECT * FROM admin WHERE id=$id";
-
-            //execute
-            $res=mysqli_query($conn, $sql);
-
-            //check 
-            if($res==true)
-            {
-                $count = mysqli_num_rows($res); //check data
-
-                if($count==1)
-                {
-                    //details
-                    $rows=mysqli_fetch_assoc($res);
-
-                    $full_name = $rows['full_name'];
-                    $user_name = $rows['user_name'];
-
-                }
-                else
-                {
-                    //no data, redirect to admin page
-                    $_SESSION ['no-id'] = "<div class='error'>Id Not Found.</div>";
-                }
-
-            }
-        
-        ?>
 
         <form action="" method="POST">
 

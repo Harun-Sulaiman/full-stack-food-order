@@ -1,6 +1,6 @@
 <?php include ('../config/constants.php'); ?>
 <?php ob_start(); ?>
-<?php session_start();
+<?php
     //check enter 
     if(isset($_POST['submit']))
     {

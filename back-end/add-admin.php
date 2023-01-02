@@ -1,6 +1,6 @@
 <?php include ('../config/constants.php'); ?>
 <?php ob_start(); ?>
-<?php session_start();
+<?php
     //form save>database
     //check submit or not
 

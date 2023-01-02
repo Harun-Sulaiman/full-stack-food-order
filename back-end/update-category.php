@@ -1,6 +1,6 @@
 <?php include ('../config/constants.php'); ?>
 <?php ob_start(); ?>
-<?php session_start();
+<?php 
 
             if(isset($_POST['submit']))
             {
@@ -107,8 +107,7 @@
                 }
         ?>
 
-<?php ob_start(); ?>
-<?php session_start();
+<?php 
 
 //check id
 if(isset($_GET['id']))
